@@ -1,0 +1,21 @@
+<?php use ITYetti\DatabaseProfiler\ViewModel\Profiler; ?>
+<?php /** @var Profiler $profile */ ?>
+<?php $profile = $block->getData('ityetti_profiler'); ?>
+<table border="1">
+    <tr>
+        <th style="width: 11%;"><?= $profile->getTotalElapsedSecs()->getText(); ?></th>
+        <th><?= $profile->getTotalNumQueries()->getText(); ?></th>
+        <th><?= __('Query Params'); ?></th>
+    </tr>
+    <?php $queries = $profile->getQueries(); ?>
+    <?php if ($queries): ?>
+        <?php foreach ($queries as $query): ?>
+            <?php /** @var Zend_Db_Profiler_Query $query */ ?>
+            <tr>
+                <td><?= number_format(1000 * $query->getElapsedSecs(), 2), ' ms'; ?></td>
+                <td><?= $query->getQuery(); ?></td>
+                <td><?= $profile->getSerializedParams($query->getQueryParams()); ?></td>
+            </tr>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</table>

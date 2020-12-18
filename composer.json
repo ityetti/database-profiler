@@ -1,0 +1,20 @@
+{
+  "name": "ityetti/database-profiler",
+  "version": "1.0.0",
+  "description": "Simple Magento 2 Database Profiler",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*"
+  },
+  "license": [
+    "Open Software License (OSL)"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "ITYetti\\DatabaseProfiler\\": ""
+    }
+  }
+}
