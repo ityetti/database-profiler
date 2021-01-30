@@ -12,8 +12,21 @@ Compatibility
 Installation Instructions
 -------------------------
 1. `composer require ityetti/database-profiler`
-2. `bin/magento module:enable ITYetti_DatabaseProfiler`
-3. `bin/magento setup:upgrade`
+2. Open project config file `app/etc/env.php` and add profiler class to your configuration:
+```
+   'db' => [
+        'connection' => [
+            'default' => [
+                'profiler' => [
+                    'class' => '\Magento\Framework\DB\Profiler',
+                    'enabled' => true
+                ]
+            ]
+        ]
+    ]
+```
+3. `bin/magento module:enable ITYetti_DatabaseProfiler`
+4. `bin/magento setup:upgrade`
 
 Uninstallation
 --------------
