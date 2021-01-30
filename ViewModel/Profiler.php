@@ -9,6 +9,7 @@ use Magento\Framework\Phrase;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Zend_Db_Profiler;
 use Magento\Framework\Serialize\SerializerInterface;
+use ITYetti\DatabaseProfiler\Service\Config;
 
 class Profiler implements ArgumentInterface
 {
@@ -22,12 +23,26 @@ class Profiler implements ArgumentInterface
      */
     private $serializer;
 
+    /**
+     * @var Config
+     */
+    private $config;
+
+    /**
+     * Profiler constructor.
+     *
+     * @param ResourceConnection $resource
+     * @param SerializerInterface $serializer
+     * @param Config $config
+     */
     public function __construct(
         ResourceConnection $resource,
-        SerializerInterface $serializer
+        SerializerInterface $serializer,
+        Config $config
     ) {
         $this->resource = $resource;
         $this->serializer = $serializer;
+        $this->config = $config;
     }
 
     /**
@@ -74,5 +89,21 @@ class Profiler implements ArgumentInterface
     public function getSerializedParams($params)
     {
         return $this->serializer->serialize($params);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function isEnabledOnFrontend()
+    {
+        return $this->config->isEnableOnFrontend();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function isEnabledOnBackend()
+    {
+        return $this->config->isEnableOnBackend();
     }
 }
