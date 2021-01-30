@@ -31,7 +31,7 @@ Installation Instructions
 6. `Enable On Frontend` - Yes
 6. `Enable On Backend` - Yes
 
-![Database Profiler](![alt text](https://github.com/ityetti/database-profiler/blob/main/database-profiler.png?raw=true))
+https://github.com/ityetti/database-profiler/blob/main/database-profiler.png?raw=true
 
 Uninstallation
 --------------
