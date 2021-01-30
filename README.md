@@ -27,6 +27,11 @@ Installation Instructions
 ```
 3. `bin/magento module:enable ITYetti_DatabaseProfiler`
 4. `bin/magento setup:upgrade`
+5. Go to Admin - Store - Configuration - ITYetti - Database Profiler
+6. `Enable On Frontend` - Yes
+6. `Enable On Backend` - Yes
+
+![Database Profiler](![alt text](https://github.com/ityetti/database-profiler/blob/main/database-profiler.png?raw=true))
 
 Uninstallation
 --------------
