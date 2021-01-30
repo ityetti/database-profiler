@@ -7,7 +7,14 @@
     "magento/framework": "*"
   },
   "license": [
-    "Open Software License (OSL)"
+    "OSL-3.0"
+  ],
+  "authors": [
+    {
+      "name": "Borovyk Oleksii",
+      "email": "ityetti@gmail.com",
+      "role": "Magento Lead Developer"
+    }
   ],
   "autoload": {
     "files": [
