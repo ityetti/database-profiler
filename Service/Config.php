@@ -15,7 +15,7 @@ class Config
     /**
      * @var ScopeConfigInterface
      */
-    private $config;
+    private ScopeConfigInterface $config;
 
     /**
      * Config constructor.
@@ -31,9 +31,9 @@ class Config
     /**
      * @param $field
      * @param null $storeId
-     * @return mixed
+     * @return string|null
      */
-    private function getConfigValue($field, $storeId = null)
+    private function getConfigValue($field, $storeId = null): string|null
     {
         return $this->config->getValue(
             $field,
@@ -44,18 +44,18 @@ class Config
 
     /**
      * @param null $storeId
-     * @return mixed
+     * @return string|null
      */
-    public function isEnableOnFrontend($storeId = null)
+    public function isEnableOnFrontend($storeId = null): string|null
     {
         return $this->getConfigValue(self::XML_PATH_ITYETTI_DATABASE_PROFILER_ENABLE_ON_FRONT, $storeId);
     }
 
     /**
      * @param null $storeId
-     * @return mixed
+     * @return string|null
      */
-    public function isEnableOnBackend($storeId = null)
+    public function isEnableOnBackend($storeId = null): string|null
     {
         return $this->getConfigValue(self::XML_PATH_ITYETTI_DATABASE_PROFILER_ENABLE_ON_BACK, $storeId);
     }

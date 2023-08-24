@@ -16,17 +16,17 @@ class Profiler implements ArgumentInterface
     /**
      * @var ResourceConnection
      */
-    private $resource;
+    private ResourceConnection $resource;
 
     /**
      * @var SerializerInterface
      */
-    private $serializer;
+    private SerializerInterface $serializer;
 
     /**
      * @var Config
      */
-    private $config;
+    private Config $config;
 
     /**
      * Profiler constructor.
@@ -77,32 +77,32 @@ class Profiler implements ArgumentInterface
     /**
      * @return array|false
      */
-    public function getQueries()
+    public function getQueries(): false|array
     {
         return $this->getProfiler()->getQueryProfiles();
     }
 
     /**
      * @param $params
-     * @return bool|string
+     * @return string
      */
-    public function getSerializedParams($params)
+    public function getSerializedParams($params): string
     {
         return $this->serializer->serialize($params);
     }
 
     /**
-     * @return mixed
+     * @return string|null
      */
-    public function isEnabledOnFrontend()
+    public function isEnabledOnFrontend(): string|null
     {
         return $this->config->isEnableOnFrontend();
     }
 
     /**
-     * @return mixed
+     * @return string|null
      */
-    public function isEnabledOnBackend()
+    public function isEnabledOnBackend(): string|null
     {
         return $this->config->isEnableOnBackend();
     }
